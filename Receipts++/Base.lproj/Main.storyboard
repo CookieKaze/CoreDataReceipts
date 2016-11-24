@@ -106,19 +106,18 @@
                                 </date>
                                 <locale key="locale" localeIdentifier="en"/>
                             </datePicker>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$ Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MJa-Cq-6hn">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount $" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MJa-Cq-6hn">
                                 <rect key="frame" x="16" y="90" width="156" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qpQ-w8-wOL">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Recipt Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qpQ-w8-wOL">
                                 <rect key="frame" x="16" y="137" width="156" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="D1q-gZ-1Jm"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -188,7 +187,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="uncheck.png"/>
                                         <connections>
-                                            <action selector="catPersonalButtonTapped:" destination="ZtR-Vn-f9y" eventType="touchUpInside" id="f2Q-DW-hOE"/>
+                                            <action selector="catPersonalButtonTapped:" destination="ZtR-Vn-f9y" eventType="touchUpInside" id="cvS-qo-E1C"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJc-he-YbF">
@@ -199,7 +198,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="uncheck.png"/>
                                         <connections>
-                                            <action selector="catFamilyButtonTapped:" destination="ZtR-Vn-f9y" eventType="touchUpInside" id="WiT-OT-ain"/>
+                                            <action selector="catFamilyButtonTapped:" destination="ZtR-Vn-f9y" eventType="touchUpInside" id="48G-ns-yrQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91Z-co-4B8">
@@ -210,7 +209,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="uncheck.png"/>
                                         <connections>
-                                            <action selector="catBusinessButtonTapped:" destination="ZtR-Vn-f9y" eventType="touchUpInside" id="djf-fq-Wf7"/>
+                                            <action selector="catBusinessButtonTapped:" destination="ZtR-Vn-f9y" eventType="touchUpInside" id="MEl-nC-EK2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -288,9 +287,9 @@
                     </view>
                     <connections>
                         <outlet property="amountTextField" destination="MJa-Cq-6hn" id="l1C-OI-rPr"/>
-                        <outlet property="catBusinessButton" destination="BtR-Fy-LdU" id="PzW-Ep-XxS"/>
-                        <outlet property="catFamilyButton" destination="BtR-Fy-LdU" id="gVy-uk-yAH"/>
-                        <outlet property="catPersonalButton" destination="BtR-Fy-LdU" id="kdT-8d-pAh"/>
+                        <outlet property="catBusinessButton" destination="91Z-co-4B8" id="PV0-ix-Hir"/>
+                        <outlet property="catFamilyButton" destination="QJc-he-YbF" id="BRZ-w9-wEX"/>
+                        <outlet property="catPersonalButton" destination="yij-oS-Lg4" id="W0L-r7-pUZ"/>
                         <outlet property="categoryView" destination="BtR-Fy-LdU" id="JRJ-kN-nF2"/>
                         <outlet property="datePicker" destination="Z6l-j0-LcS" id="CN9-dq-hzN"/>
                         <outlet property="receiptDesc" destination="qpQ-w8-wOL" id="ndj-Ct-CO7"/>

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class Tag;
 @interface AddViewController : UIViewController
-
+@property (nonatomic, weak) NSManagedObjectContext * context;
 @end

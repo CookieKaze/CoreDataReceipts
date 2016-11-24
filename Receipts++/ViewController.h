@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Tag;
 
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) NSManagedObjectContext * context;
+@property (nonatomic) NSArray <Tag*>* tags;
 
 @end
 
