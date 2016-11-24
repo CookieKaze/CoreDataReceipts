@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="peP-NN-aKg" id="SHN-Eg-Ul7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -110,7 +110,7 @@
                                 <rect key="frame" x="16" y="90" width="156" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Recipt Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qpQ-w8-wOL">
                                 <rect key="frame" x="16" y="137" width="156" height="128"/>
@@ -244,7 +244,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tWs-cR-KKR" kind="unwind" unwindAction="unwindToMainMenu:" id="Ils-ec-9Ki"/>
+                                    <segue destination="tWs-cR-KKR" kind="unwind" identifier="cancel" unwindAction="unwindToMainMenu:" id="Ils-ec-9Ki"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmk-c3-NG0">
@@ -257,7 +257,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addButtonTapped:" destination="ZtR-Vn-f9y" eventType="touchUpInside" id="X46-xh-R8q"/>
+                                    <action selector="addButtonTapped:" destination="ZtR-Vn-f9y" eventType="touchUpInside" id="eu3-o6-Z6C"/>
+                                    <segue destination="tWs-cR-KKR" kind="unwind" identifier="returnAfterAdd" unwindAction="unwindToMainMenu:" id="FDa-mk-J4q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -298,7 +299,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdm-kb-XTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="tWs-cR-KKR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="684" y="35.532233883058474"/>
+            <point key="canvasLocation" x="730" y="36"/>
         </scene>
     </scenes>
     <resources>

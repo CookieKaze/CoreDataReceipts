@@ -82,17 +82,60 @@
 
 #pragma mark - Segue Buttons
 - (IBAction)addButtonTapped:(UIButton *)sender {
-    
-    //Create new receipt
-    Receipt * newReceipt = [NSEntityDescription insertNewObjectForEntityForName:@"Recepit" inManagedObjectContext:self.context];
-    newReceipt.amount = [self.amountTextField.text floatValue];
-    newReceipt.note = self.receiptDesc.text;
-    newReceipt.timeStamp = self.datePicker.date;
-    
-    
+        //Create new receipt
+        Receipt * newReceipt = [NSEntityDescription insertNewObjectForEntityForName:@"Receipt" inManagedObjectContext:self.context];
+        newReceipt.amount = [self.amountTextField.text floatValue];
+        newReceipt.note = self.receiptDesc.text;
+        newReceipt.timeStamp = self.datePicker.date;
+        
+        //Create mutableSet of Tags
+        NSMutableSet * receiptTags = [newReceipt mutableSetValueForKey:@"tag"];
+        
+        //Create fetch request
+        NSFetchRequest * fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription * entity = [NSEntityDescription entityForName:@"Tag" inManagedObjectContext:self.context];
+        [fetchRequest setEntity:entity];
+        
+        NSError * error = nil;
+        if (self.catPersonalChecked) {
+            NSPredicate * personalPred = [NSPredicate predicateWithFormat:@"%K == %@", @"name", @"personal"];
+            [fetchRequest setPredicate: personalPred];
+            NSArray * tags = [self.context executeFetchRequest:fetchRequest error:&error];
+            if (error) {
+                NSLog(@"Error with tag fetch: %@",error.localizedDescription);
+                abort();
+            }
+            [receiptTags addObject:[tags lastObject]];
+        }
+        if (self.catFamilyChecked) {
+            NSPredicate * personalPred = [NSPredicate predicateWithFormat:@"%K == %@", @"name", @"family"];
+            [fetchRequest setPredicate: personalPred];
+            NSArray * tags = [self.context executeFetchRequest:fetchRequest error:&error];
+            if (error) {
+                NSLog(@"Error with tag fetch: %@",error.localizedDescription);
+                abort();
+            }
+            [receiptTags addObject:[tags lastObject]];
+        }
+        if (self.catBusinessChecked) {
+            NSPredicate * personalPred = [NSPredicate predicateWithFormat:@"%K == %@", @"name", @"business"];
+            [fetchRequest setPredicate: personalPred];
+            NSArray * tags = [self.context executeFetchRequest:fetchRequest error:&error];
+            if (error) {
+                NSLog(@"Error with tag fetch: %@",error.localizedDescription);
+                abort();
+            }
+            [receiptTags addObject:[tags lastObject]];
+        }
+        [self.context save:&error];
+        if (error) {
+            NSLog(@"Error with saving receipt: %@",error.localizedDescription);
+            abort();
+        }
+        
+        [self performSegueWithIdentifier:@"returnAfterAdd" sender:nil];
     
 }
-
 
 #pragma mark - Keyboard Stuff
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -105,4 +148,36 @@
     return YES;
 }
 
+#pragma mark - Testing weird things
+-(void)shake:(UIView*) view {
+    const int reset = 5;
+    const int maxShakes = 6;
+    
+    //pass these as variables instead of statics or class variables if shaking two controls simultaneously
+    static int shakes = 0;
+    static int translate = reset;
+    
+    [UIView animateWithDuration:0.09-(shakes*.01) // reduce duration every shake from .09 to .04
+                          delay:0.01f//edge wait delay
+                        options:(enum UIViewAnimationOptions) UIViewAnimationCurveEaseInOut
+                     animations:^{view.transform = CGAffineTransformMakeTranslation(translate, 0);}
+                     completion:^(BOOL finished){
+                         if(shakes < maxShakes){
+                             shakes++;
+                             
+                             //throttle down movement
+                             if (translate>0)
+                                 translate--;
+                             
+                             //change direction
+                             translate*=-1;
+                             [self shake:view];
+                         } else {
+                             view.transform = CGAffineTransformIdentity;
+                             shakes = 0;//ready for next time
+                             translate = reset;//ready for next time
+                             return;
+                         }
+                     }];
+}
 @end

@@ -11,7 +11,7 @@
 
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) NSManagedObjectContext * context;
-@property (nonatomic) NSArray <Tag*>* tags;
-
+@property (nonatomic) NSMutableArray * tableData;
+@property (nonatomic) NSArray<Tag*> * tagList;
 @end
 
