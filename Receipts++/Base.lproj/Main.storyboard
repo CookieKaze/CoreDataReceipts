@@ -168,19 +168,49 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yij-oS-Lg4">
+                                        <rect key="frame" x="133" y="41" width="21" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="EsC-b4-24b"/>
+                                            <constraint firstAttribute="width" constant="21" id="qyC-Cv-KeG"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="uncheck.png"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJc-he-YbF">
+                                        <rect key="frame" x="133" y="72" width="21" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="0f8-Ps-vhV"/>
+                                            <constraint firstAttribute="width" constant="21" id="zdM-u0-vNG"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="uncheck.png"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91Z-co-4B8">
+                                        <rect key="frame" x="133" y="103" width="21" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="NbU-49-Ii0"/>
+                                            <constraint firstAttribute="width" constant="21" id="s46-g5-lJT"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="uncheck.png"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="91Z-co-4B8" secondAttribute="trailing" constant="8" id="0Wj-01-acZ"/>
                                     <constraint firstAttribute="trailing" secondItem="VMW-Ok-hEY" secondAttribute="trailing" id="7Tu-yk-N8e"/>
                                     <constraint firstAttribute="height" constant="175" id="8L2-El-bxD"/>
+                                    <constraint firstAttribute="trailing" secondItem="yij-oS-Lg4" secondAttribute="trailing" constant="8" id="CLb-xt-NJh"/>
                                     <constraint firstItem="LPt-4r-f4p" firstAttribute="top" secondItem="G2x-Sl-VDK" secondAttribute="bottom" constant="10" id="NhL-wP-BW2"/>
                                     <constraint firstItem="VMW-Ok-hEY" firstAttribute="top" secondItem="BtR-Fy-LdU" secondAttribute="top" id="S1e-Al-gTi"/>
                                     <constraint firstItem="G2x-Sl-VDK" firstAttribute="top" secondItem="VMW-Ok-hEY" secondAttribute="bottom" constant="20" id="VDj-TI-q1b"/>
+                                    <constraint firstAttribute="trailing" secondItem="QJc-he-YbF" secondAttribute="trailing" constant="8" id="W2J-QP-3QV"/>
                                     <constraint firstItem="Lwy-pv-jjJ" firstAttribute="leading" secondItem="BtR-Fy-LdU" secondAttribute="leading" constant="8" id="aqQ-hd-NaM"/>
                                     <constraint firstItem="LPt-4r-f4p" firstAttribute="leading" secondItem="BtR-Fy-LdU" secondAttribute="leading" constant="8" id="jm4-DX-Ob2"/>
+                                    <constraint firstItem="yij-oS-Lg4" firstAttribute="top" secondItem="VMW-Ok-hEY" secondAttribute="bottom" constant="20" id="mpi-FX-Fqt"/>
                                     <constraint firstItem="G2x-Sl-VDK" firstAttribute="leading" secondItem="BtR-Fy-LdU" secondAttribute="leading" constant="8" id="ndg-Mg-zxk"/>
                                     <constraint firstItem="VMW-Ok-hEY" firstAttribute="leading" secondItem="BtR-Fy-LdU" secondAttribute="leading" id="pqf-Bf-SKc"/>
                                     <constraint firstItem="Lwy-pv-jjJ" firstAttribute="top" secondItem="LPt-4r-f4p" secondAttribute="bottom" constant="10" id="q8R-oI-gYB"/>
+                                    <constraint firstItem="91Z-co-4B8" firstAttribute="top" secondItem="QJc-he-YbF" secondAttribute="bottom" constant="10" id="re7-l4-Tce"/>
+                                    <constraint firstItem="QJc-he-YbF" firstAttribute="top" secondItem="yij-oS-Lg4" secondAttribute="bottom" constant="10" id="vD5-oa-n84"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmk-c3-NG0">
@@ -231,4 +261,7 @@
             <point key="canvasLocation" x="684" y="35.532233883058474"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="uncheck.png" width="50" height="50"/>
+    </resources>
 </document>
