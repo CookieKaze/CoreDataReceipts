@@ -50,9 +50,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ZtR-Vn-f9y" kind="popoverPresentation" identifier="addView" popoverAnchorView="LeT-3Y-mNN" id="MVs-hq-Xld">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="addButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ljn-lA-SCX"/>
+                                    <segue destination="ZtR-Vn-f9y" kind="show" identifier="toAddView" id="TwU-Rt-wbB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,15 +66,18 @@
                             <constraint firstAttribute="trailing" secondItem="LeT-3Y-mNN" secondAttribute="trailing" id="unJ-BO-bUa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="w1s-hz-y9J" id="nyw-XS-rYG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+            <point key="canvasLocation" x="-121" y="36"/>
         </scene>
-        <!--View Controller-->
+        <!--Add View Controller-->
         <scene sceneID="1iS-Ro-HRa">
             <objects>
-                <viewController id="ZtR-Vn-f9y" sceneMemberID="viewController">
+                <viewController id="ZtR-Vn-f9y" customClass="AddViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="83A-Sk-8pu"/>
                         <viewControllerLayoutGuide type="bottom" id="5GQ-rO-P8H"/>
@@ -94,6 +96,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Z6l-j0-LcS">
+                                <rect key="frame" x="0.0" y="290" width="375" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="guf-oP-cyu"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="501696975.43668002">
+                                    <!--2016-11-24 16:16:15 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="en"/>
+                            </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$ Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MJa-Cq-6hn">
                                 <rect key="frame" x="16" y="90" width="156" height="30"/>
                                 <nil key="textColor"/>
@@ -115,7 +127,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMW-Ok-hEY">
                                         <rect key="frame" x="0.0" y="0.0" width="162" height="21"/>
-                                        <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="HuS-44-xAx"/>
                                         </constraints>
@@ -175,6 +187,9 @@
                                             <constraint firstAttribute="width" constant="21" id="qyC-Cv-KeG"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="uncheck.png"/>
+                                        <connections>
+                                            <action selector="catPersonalButtonTapped:" destination="ZtR-Vn-f9y" eventType="touchUpInside" id="f2Q-DW-hOE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJc-he-YbF">
                                         <rect key="frame" x="133" y="72" width="21" height="21"/>
@@ -183,6 +198,9 @@
                                             <constraint firstAttribute="width" constant="21" id="zdM-u0-vNG"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="uncheck.png"/>
+                                        <connections>
+                                            <action selector="catFamilyButtonTapped:" destination="ZtR-Vn-f9y" eventType="touchUpInside" id="WiT-OT-ain"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91Z-co-4B8">
                                         <rect key="frame" x="133" y="103" width="21" height="21"/>
@@ -191,6 +209,9 @@
                                             <constraint firstAttribute="width" constant="21" id="s46-g5-lJT"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="uncheck.png"/>
+                                        <connections>
+                                            <action selector="catBusinessButtonTapped:" destination="ZtR-Vn-f9y" eventType="touchUpInside" id="djf-fq-Wf7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -213,25 +234,33 @@
                                     <constraint firstItem="QJc-he-YbF" firstAttribute="top" secondItem="yij-oS-Lg4" secondAttribute="bottom" constant="10" id="vD5-oa-n84"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RyZ-Wi-dd0">
+                                <rect key="frame" x="0.0" y="627" width="108" height="40"/>
+                                <color key="backgroundColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="5hi-Lw-ELt"/>
+                                    <constraint firstAttribute="height" constant="40" id="fbA-f3-xHj"/>
+                                </constraints>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="tWs-cR-KKR" kind="unwind" unwindAction="unwindToMainMenu:" id="Ils-ec-9Ki"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmk-c3-NG0">
-                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <rect key="frame" x="108" y="627" width="267" height="40"/>
                                 <color key="backgroundColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="9u4-FT-kFJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="1aA-vk-caK"/>
                                 </constraints>
                                 <state key="normal" title="Add Receipt">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="ZtR-Vn-f9y" eventType="touchUpInside" id="X46-xh-R8q"/>
+                                </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Z6l-j0-LcS">
-                                <rect key="frame" x="0.0" y="290" width="375" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="guf-oP-cyu"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="501696975.43668002">
-                                    <!--2016-11-24 16:16:15 +0000-->
-                                </date>
-                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -239,24 +268,36 @@
                             <constraint firstAttribute="trailingMargin" secondItem="MJa-Cq-6hn" secondAttribute="trailing" constant="187" id="68p-es-loV"/>
                             <constraint firstItem="MJa-Cq-6hn" firstAttribute="leading" secondItem="yBg-pG-WSN" secondAttribute="leadingMargin" id="6NE-wo-mIi"/>
                             <constraint firstItem="Z6l-j0-LcS" firstAttribute="top" secondItem="BtR-Fy-LdU" secondAttribute="bottom" constant="25" id="B9d-Rg-WvX"/>
+                            <constraint firstItem="5GQ-rO-P8H" firstAttribute="top" secondItem="RyZ-Wi-dd0" secondAttribute="bottom" id="JUm-4o-vKg"/>
                             <constraint firstAttribute="trailing" secondItem="egh-Qn-sUq" secondAttribute="trailing" id="Lcz-BA-bQ0"/>
-                            <constraint firstItem="Lmk-c3-NG0" firstAttribute="leading" secondItem="yBg-pG-WSN" secondAttribute="leading" id="P1M-6T-I89"/>
                             <constraint firstItem="Z6l-j0-LcS" firstAttribute="leading" secondItem="yBg-pG-WSN" secondAttribute="leading" id="PC2-9V-b8J"/>
+                            <constraint firstItem="Lmk-c3-NG0" firstAttribute="leading" secondItem="RyZ-Wi-dd0" secondAttribute="trailing" id="Qfo-gQ-Vn1"/>
                             <constraint firstItem="egh-Qn-sUq" firstAttribute="top" secondItem="83A-Sk-8pu" secondAttribute="bottom" id="Qmg-or-b4K"/>
                             <constraint firstItem="BtR-Fy-LdU" firstAttribute="top" secondItem="egh-Qn-sUq" secondAttribute="bottom" constant="30" id="aUG-tX-xQi"/>
                             <constraint firstItem="BtR-Fy-LdU" firstAttribute="trailing" secondItem="yBg-pG-WSN" secondAttribute="trailingMargin" id="b6w-Jh-hKf"/>
-                            <constraint firstAttribute="trailing" secondItem="Lmk-c3-NG0" secondAttribute="trailing" id="c8Z-6a-qHD"/>
+                            <constraint firstItem="5GQ-rO-P8H" firstAttribute="top" secondItem="Lmk-c3-NG0" secondAttribute="bottom" id="bCE-9x-ebE"/>
                             <constraint firstItem="egh-Qn-sUq" firstAttribute="leading" secondItem="yBg-pG-WSN" secondAttribute="leading" id="cEN-sF-tLr"/>
+                            <constraint firstItem="RyZ-Wi-dd0" firstAttribute="leading" secondItem="yBg-pG-WSN" secondAttribute="leading" id="dKQ-Fd-vlj"/>
                             <constraint firstAttribute="trailing" secondItem="Z6l-j0-LcS" secondAttribute="trailing" id="ffI-XZ-Dgx"/>
                             <constraint firstItem="BtR-Fy-LdU" firstAttribute="leading" secondItem="qpQ-w8-wOL" secondAttribute="trailing" constant="25" id="gbO-Fb-naP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qpQ-w8-wOL" secondAttribute="trailing" constant="187" id="jRI-Sj-JZe"/>
-                            <constraint firstItem="5GQ-rO-P8H" firstAttribute="top" secondItem="Lmk-c3-NG0" secondAttribute="bottom" id="lGJ-pY-wGU"/>
+                            <constraint firstAttribute="trailing" secondItem="Lmk-c3-NG0" secondAttribute="trailing" id="jzf-ge-HVf"/>
                             <constraint firstItem="qpQ-w8-wOL" firstAttribute="top" secondItem="MJa-Cq-6hn" secondAttribute="bottom" constant="17" id="yTU-hj-0zO"/>
                             <constraint firstItem="MJa-Cq-6hn" firstAttribute="top" secondItem="egh-Qn-sUq" secondAttribute="bottom" constant="30" id="zY4-14-elj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amountTextField" destination="MJa-Cq-6hn" id="l1C-OI-rPr"/>
+                        <outlet property="catBusinessButton" destination="BtR-Fy-LdU" id="PzW-Ep-XxS"/>
+                        <outlet property="catFamilyButton" destination="BtR-Fy-LdU" id="gVy-uk-yAH"/>
+                        <outlet property="catPersonalButton" destination="BtR-Fy-LdU" id="kdT-8d-pAh"/>
+                        <outlet property="categoryView" destination="BtR-Fy-LdU" id="JRJ-kN-nF2"/>
+                        <outlet property="datePicker" destination="Z6l-j0-LcS" id="CN9-dq-hzN"/>
+                        <outlet property="receiptDesc" destination="qpQ-w8-wOL" id="ndj-Ct-CO7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdm-kb-XTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="tWs-cR-KKR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="684" y="35.532233883058474"/>
         </scene>
